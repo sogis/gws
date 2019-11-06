@@ -1,2 +1,11 @@
 # Exclude packages copied from other sources
 external/
+
+# Exclude db data files
+db/pgdata/
+
+# Exclude build process temp files
+.gradle
+/gradle/
+/build/
+/bin/

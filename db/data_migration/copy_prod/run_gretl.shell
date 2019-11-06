@@ -1,0 +1,27 @@
+
+export DB_URI_SOGIS=$GRETL_PROD_SOGIS_URL
+export DB_USER_SOGIS=$GRETL_DB_USER
+export DB_PWD_SOGIS=$GRETL_DB_PASS
+
+export DB_URI_EDIT="jdbc:postgresql://localhost:5432/postgres"
+export DB_USER_EDIT="postgres"
+export DB_PWD_EDIT="postgres"
+
+echo "===================================================================="
+echo "SOLR_INDEXUPDATER_BASE_URL: $SOLR_INDEXUPDATER_BASE_URL"
+echo ""
+echo "DB_URI_SOGIS: $DB_URI_SOGIS"
+echo "DB_USER_SOGIS: $DB_USER_SOGIS"
+echo "DB_PWD_SOGIS: $DB_PWD_SOGIS"
+echo ""
+echo "DB_URI_EDIT: $DB_URI_EDIT"
+echo "DB_USER_EDIT: $DB_USER_EDIT"
+echo "DB_PWD_EDIT: $DB_PWD_EDIT"
+echo "===================================================================="
+
+/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/copy_prod
+
+
+#export GRETL_INT_EDIT_URL="jdbc:postgresql://geodb-i.rootso.org/edit?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
+#export GRETL_PROD_SOGIS_URL="jdbc:postgresql://geodb.verw.rootso.org/sogis"
+

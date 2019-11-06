@@ -1,0 +1,16 @@
+import ch.so.agi.gretl.tasks.*
+
+apply plugin: 'ch.so.agi.gretl'
+
+defaultTasks 'migrate'
+
+task clearTargetRows(type: SqlExecutor){
+    database = [dbUriEdit, dbUserEdit, dbPwdEdit]
+    sqlFiles = ['delete_all_datarows.sql']
+}
+
+task migrate(type: SqlExecutor, dependsOn: clearTargetRows){
+    database = [dbUriEdit, dbUserEdit, dbPwdEdit]
+    sqlFiles = ['gsbereich_insert.sql', 'gszone_insert.sql', 'gsareal_insert.sql']
+}
+

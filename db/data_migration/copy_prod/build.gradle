@@ -1,0 +1,16 @@
+import ch.so.agi.gretl.tasks.*
+import ch.so.agi.gretl.api.TransferSet
+
+apply plugin: 'ch.so.agi.gretl'
+
+defaultTasks 'transferAfuGewaesserschutz'
+
+task transferAfuGewaesserschutz(type: Db2Db){
+    sourceDb = [dbUriSogis, dbUserSogis, dbPwdSogis]
+    targetDb = [dbUriEdit, dbUserEdit, dbPwdEdit]
+    transferSets = [
+            new TransferSet('aww_gszoar.sql', 'public.aww_gszoar', true),
+            new TransferSet('aww_gszustr.sql', 'public.aww_gszustr', true),
+            new TransferSet('aww_gsab.sql', 'public.aww_gsab', true)
+    ]
+}

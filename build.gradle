@@ -1,0 +1,34 @@
+apply plugin: 'java'
+
+task stopDb(type:Exec) {
+ 	commandLine 'docker', 'rm', '-f', 'pgdev_gws'
+ 	ignoreExitValue true
+}
+
+task startDb(type:Exec, dependsOn:stopDb) {
+ 	workingDir "$projectDir/db"
+ 	commandLine './run_db.sh', 'bg'
+}
+
+task createTables(){
+	dependsOn: createModelTables
+	dependsOn: createLegacyTables
+}
+
+task createModelTables(type:Exec, dependsOn:startDb) {
+ 	workingDir "$projectDir/db"
+ 	commandLine './create_schema.sh'
+} 
+
+task createLegacyTables(type:Exec, dependsOn:startDb) {
+ 	workingDir "$projectDir/db"
+ 	commandLine './create_schema.sh'
+} 
+
+
+
+
+
+
+
+
