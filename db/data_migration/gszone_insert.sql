@@ -9,10 +9,15 @@
 with 
 afu_gszoar as
 (
-	 SELECT aww_gszoar.ogc_fid, aww_gszoar."zone", aww_gszoar.rrbnr, 
-	    aww_gszoar.rrb_date, aww_gszoar.wkb_geometry
-	   FROM aww_gszoar
-	  WHERE aww_gszoar.archive = 0 and "zone" != 'SARE'
+	SELECT 
+		aww_gszoar.ogc_fid, 
+	 	aww_gszoar."zone",
+	 	concat_ws('-', date_part('year', rrb_date), rrbnr) AS rrb_id,
+	 	aww_gszoar.rrbnr, 
+	    aww_gszoar.rrb_date, 
+	    aww_gszoar.wkb_geometry
+	FROM aww_gszoar
+	WHERE aww_gszoar.archive = 0 and "zone" != 'SARE'
 ),
 singlepolygon as 
 (
@@ -38,51 +43,116 @@ zone_fields as -- gwszone felder gemappt aus aww_gszoar
 			else 'Umbauproblem: Nicht behandelte Codierung von Attibut [zone]'
 		end as typ,
 		false as ist_altrechtlich, 
-		rrbnr,
 		'inKraft' as stat_rechtsstatus,
-		rrb_date as stat_rechtskraftsdatum
+		rrb_date as stat_rechtskraftsdatum,
+		rrb_id
 	from afu_gszoar
 ),
 gwszone as
 (
 	select 
 		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_gwszone,
-		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_status,
-		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_dokument,
 		concat('Altdaten-FID: ',singlepolygon.ogc_fid,'-',partindex) as altdaten_id, 
 		typ,
 		ist_altrechtlich,
-		rrbnr,
 		stat_rechtsstatus,
 		stat_rechtskraftsdatum,
+		rrb_id,
 		geo_wkb as singlepoly_wkb
 	from zone_fields
 	inner join singlepolygon on zone_fields.ogc_fid = singlepolygon.ogc_fid
 ),
-insert_status as
+rrb_dat_tupel AS 
+(
+	SELECT 
+		max(rrb_date) AS rrb_date,
+		rrb_id,
+		rrbnr
+	FROM
+		afu_gszoar
+	GROUP BY 
+		rrb_id, rrbnr
+),
+status AS
+(
+	SELECT 
+		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_status,
+		'inKraft' AS rechtsstatus, 
+		rrb_date AS rechtskraftdatum,
+		rrb_id
+	FROM
+		rrb_dat_tupel
+),
+dokument AS 
+(
+	SELECT 
+		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_dok,
+		'Rechtsvorschrift' AS art,
+		'Regierungsratsbeschluss' AS typ,
+		rrb_date,
+		rrb_id,
+		rrbnr AS nr
+	FROM
+		rrb_dat_tupel
+	UNION ALL
+		SELECT 
+		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_dok,
+		'Rechtsvorschrift' AS art,
+		'Schutzzonenreglement' AS typ,
+		rrb_date,
+		rrb_id,
+		NULL AS nr
+	FROM
+		rrb_dat_tupel
+	UNION ALL
+		SELECT 
+		nextval('afu_gewaesserschutz.t_ili2db_seq') as tid_dok,
+		'Hinweis' AS art,
+		'Schutzzonenplan' AS typ,
+		rrb_date,
+		rrb_id,
+		NULL AS nr
+	FROM
+		rrb_dat_tupel
+),
+insert_status AS
 (
 	insert into afu_gewaesserschutz.astatus(t_id, rechtsstatus, rechtskraftdatum)
 	(
-		select tid_status, stat_rechtsstatus, stat_rechtskraftsdatum from gwszone
-	)
-),
-insert_dokument AS 
-(
-	INSERT INTO afu_gewaesserschutz.dokument(t_id, art, titel, offiziellenr, kanton, publiziertAb, rechtsstatus)(
-		SELECT tid_dokument, 'Rechtsvorschrift', 'Regierungsratsbeschluss', rrbnr, 'SO', stat_rechtskraftsdatum, 'inKraft' from gwszone
+		select tid_status, rechtsstatus, rechtskraftdatum from status
 	)
 ),
 insert_gwszone AS
 (
 	insert into afu_gewaesserschutz.gwszone(t_id, typ, istaltrechtlich, astatus, bemerkungen, bemerkungen_lang, geometrie)
 	(
-		select tid_gwszone, typ, ist_altrechtlich, tid_status, altdaten_id, 'de', ST_GeomFromWKB(singlepoly_wkb, 2056) from gwszone
+		select 
+			tid_gwszone, typ, ist_altrechtlich, tid_status, altdaten_id, 'de', ST_GeomFromWKB(singlepoly_wkb, 2056) 
+		from 
+			gwszone
+		INNER JOIN status ON
+			gwszone.rrb_id = status.rrb_id
+	)
+),
+insert_dokument AS 
+(
+	INSERT INTO afu_gewaesserschutz.dokument(t_id, art, titel, offiziellenr, kanton, publiziertAb, rechtsstatus)(
+		SELECT tid_dok, art, typ, nr, 'SO', rrb_date, 'inKraft' FROM dokument
+	)
+),
+insert_link AS 
+(
+	insert into afu_gewaesserschutz.rechtsvorschriftgwszone(rechtsvorschrift, gwszone)
+	(
+		SELECT 
+			tid_dok,
+			tid_gwszone
+		FROM 
+			dokument
+		INNER JOIN gwszone ON
+			dokument.rrb_id = gwszone.rrb_id
 	)
 )
 
-
-insert into afu_gewaesserschutz.rechtsvorschriftgwszone(rechtsvorschrift, gwszone)
-(
-	SELECT tid_dokument, tid_gwszone from gwszone
-)
+SELECT * FROM rrb_dat_tupel
 ;
