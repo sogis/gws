@@ -1,7 +1,10 @@
 WITH gszustr as
 (
 	SELECT aww_gszustr.ogc_fid, aww_gszustr.wkb_geometry, aww_gszustr.typ, aww_gszustr.name
-	FROM aww_gszustr where archive = 0 AND im_kanton = 1
+	FROM aww_gszustr 
+	where archive = 0 
+	AND im_kanton = 1
+	--AND st_isvalid(wkb_geometry)
 ),
 singlepoly_gszu as
 (
@@ -76,16 +79,22 @@ gwsbereich as
 		typ,
 		singlepoly_wkb
 	from unionall
+),
+gsbereich_insert AS
+(
+	INSERT INTO afu_gewaesserschutz.gsbereich(t_id, typ, bemerkungen, bemerkungen_lang, geometrie)
+	(
+	        SELECT
+	                tid,
+	                typ,
+	                bemerkungen,
+	                bemerkungen_lang,
+	                ST_GeomFromWKB(singlepoly_wkb, 2056)
+	        FROM gwsbereich
+	        
+	)
+	RETURNING *
 )
 
-INSERT INTO afu_gewaesserschutz.gsbereich(t_id, typ, bemerkungen, bemerkungen_lang, geometrie)
-(
-        SELECT
-                tid,
-                typ,
-                bemerkungen,
-                bemerkungen_lang,
-                ST_GeomFromWKB(singlepoly_wkb, 2056)
-        FROM gwsbereich
-)
+SELECT concat_ws(' ', 'gsbereich_insert.sql:', count(*), 'Zeilen in [gsbereich] eingefuegt.') AS msg FROM gsbereich_insert
 ;

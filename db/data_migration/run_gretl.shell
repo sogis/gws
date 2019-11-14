@@ -1,3 +1,4 @@
+#!/bin/bash
 
 export DB_URI_EDIT="jdbc:postgresql://localhost:5432/postgres"
 export DB_USER_EDIT="postgres"

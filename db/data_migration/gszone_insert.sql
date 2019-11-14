@@ -17,7 +17,9 @@ afu_gszoar as
 	    aww_gszoar.rrb_date, 
 	    aww_gszoar.wkb_geometry
 	FROM aww_gszoar
-	WHERE aww_gszoar.archive = 0 and "zone" != 'SARE'
+	WHERE aww_gszoar.archive = 0 
+	and "zone" != 'SARE'
+	--AND st_isvalid(wkb_geometry)
 ),
 singlepolygon as 
 (
@@ -121,6 +123,7 @@ insert_status AS
 	(
 		select tid_status, rechtsstatus, rechtskraftdatum from status
 	)
+	RETURNING *
 ),
 insert_gwszone AS
 (
@@ -133,12 +136,14 @@ insert_gwszone AS
 		INNER JOIN status ON
 			gwszone.rrb_id = status.rrb_id
 	)
+	RETURNING *
 ),
 insert_dokument AS 
 (
-	INSERT INTO afu_gewaesserschutz.dokument(t_id, art, titel, offiziellenr, kanton, publiziertAb, rechtsstatus)(
-		SELECT tid_dok, art, typ, nr, 'SO', rrb_date, 'inKraft' FROM dokument
+	INSERT INTO afu_gewaesserschutz.dokument(t_id, art, titel, offiziellenr, kanton, publiziertAb, rechtsstatus, textimweb)(
+		SELECT tid_dok, art, typ, nr, 'SO', rrb_date, 'inKraft', NULL FROM dokument
 	)
+	RETURNING *
 ),
 insert_link AS 
 (
@@ -152,7 +157,14 @@ insert_link AS
 		INNER JOIN gwszone ON
 			dokument.rrb_id = gwszone.rrb_id
 	)
+	RETURNING *
 )
 
-SELECT * FROM rrb_dat_tupel
+SELECT concat_ws(' ', 'gszone_insert.sql:', count(*), 'Zeilen in [astatus] eingefuegt.') AS msg FROM insert_status
+UNION ALL
+SELECT concat_ws(' ', 'gszone_insert.sql:', count(*), 'Zeilen in [gszone] eingefuegt.') AS msg FROM insert_gwszone
+UNION ALL
+SELECT concat_ws(' ', 'gszone_insert.sql:', count(*), 'Zeilen in [dokument] eingefuegt.') AS msg FROM insert_dokument
+UNION ALL
+SELECT concat_ws(' ', 'gszone_insert.sql:', count(*), 'Zeilen in [rechtsvorschriftgwszone] eingefuegt.') AS msg FROM insert_link
 ;

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+java -jar $(pwd)/../../../external/ili2pg-4.3.1/ili2pg-4.3.1.jar --export --dbdatabase postgres --dbschema afu_gewaesserschutz --dbusr postgres --dbpwd postgres \
+	--strokeArcs --models PlanerischerGewaesserschutz_LV95_V1_1 $(pwd)/PlanerischerGewaesserschutz_V1_1.xtf

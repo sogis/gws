@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+#create db
+java -jar $(pwd)/../../../external/ili2gpkg-4.3.2/ili2gpkg-4.3.2.jar --schemaimport --models --models PlanerischerGewaesserschutz_LV95_V1_1 $(pwd)/PlanerischerGewaesserschutz_V1_1.gpkg
+
+#import data
+java -jar $(pwd)/../../../external/ili2gpkg-4.3.2/ili2gpkg-4.3.2.jar --import --dbfile $(pwd)/PlanerischerGewaesserschutz_V1_1.gpkg $(pwd)/PlanerischerGewaesserschutz_V1_1.xtf
