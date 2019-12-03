@@ -44,7 +44,11 @@ zone_fields as -- gwszone felder gemappt aus aww_gszoar
 			when trim("zone") = 'GZ3' then 'S3'
 			else 'Umbauproblem: Nicht behandelte Codierung von Attibut [zone]'
 		end as typ,
-		false as ist_altrechtlich, 
+		CASE 
+			WHEN rrb_date < '01.01.2001' 
+				THEN TRUE
+			ELSE FALSE
+		END AS ist_altrechtlich, 
 		'inKraft' as stat_rechtsstatus,
 		rrb_date as stat_rechtskraftsdatum,
 		rrb_id
