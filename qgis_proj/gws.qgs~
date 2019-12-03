@@ -2633,10 +2633,11 @@ def my_form_open(dialog, layer, feature):
           </editWidget>
         </field>
         <field name="kantonaletypbezeichnung">
-          <editWidget type="UniqueValues">
+          <editWidget type="TextEdit">
             <config>
               <Option type="Map">
-                <Option value="true" name="Editable" type="bool"/>
+                <Option value="false" name="IsMultiline" type="bool"/>
+                <Option value="false" name="UseHtml" type="bool"/>
               </Option>
             </config>
           </editWidget>
@@ -2733,7 +2734,7 @@ def my_form_open(dialog, layer, feature):
         <constraint exp="" desc="" field="bemerkungen"/>
         <constraint exp="" desc="" field="bemerkungen_lang"/>
         <constraint exp="" desc="" field="typ"/>
-        <constraint exp="regexp_match(coalesce(kantonaletypbezeichnung, 'NULL'), 'S3P|NULL')&#xa;" desc="Falls typ = kantonal: Zone S3+, sonst NULL" field="kantonaletypbezeichnung"/>
+        <constraint exp="if(&#xa;&#x9;&quot;typ&quot; like '%kantonal%',&#xa;&#x9;regexp_match(coalesce(kantonaletypbezeichnung, '_NULL_'), '(S3P)'),&#xa;&#x9;regexp_match(coalesce(kantonaletypbezeichnung, '_NULL_'), '(_NULL_)')&#xa;)&#xa;" desc="Falls typ = kantonal: Zone S3P, sonst NULL" field="kantonaletypbezeichnung"/>
         <constraint exp="" desc="" field="kantonaletypbezeichnung_lang"/>
         <constraint exp="" desc="" field="istaltrechtlich"/>
         <constraint exp="" desc="" field="astatus"/>
