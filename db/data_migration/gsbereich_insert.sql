@@ -82,7 +82,7 @@ gwsbereich as
 ),
 gsbereich_insert AS
 (
-	INSERT INTO afu_gewaesserschutz.gsbereich(t_id, typ, bemerkungen, bemerkungen_lang, geometrie)
+	INSERT INTO afu_gewaesserschutz.gsbereiche_gsbereich(t_id, typ, bemerkungen, bemerkungen_lang, geometrie)
 	(
 	        SELECT
 	                tid,

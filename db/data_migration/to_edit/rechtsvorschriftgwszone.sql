@@ -1,0 +1,2 @@
+SELECT t_id, rechtsvorschrift, gwszone
+FROM afu_gewaesserschutz.gwszonen_rechtsvorschriftgwszone;

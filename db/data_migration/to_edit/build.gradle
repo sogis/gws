@@ -1,0 +1,37 @@
+import ch.so.agi.gretl.tasks.*
+import ch.so.agi.gretl.api.TransferSet
+
+apply plugin: 'ch.so.agi.gretl'
+
+defaultTasks 'printSequenceUpdate'
+
+def localDevDb = ['jdbc:postgresql://localhost/postgres','postgres','postgres']
+def editDb = [dbUriEdit, dbUserEdit, dbPwdEdit]
+
+task deleteRows(type: SqlExecutor){
+    database = editDb
+    sqlFiles = ['delete_all_datarows.sql']
+}
+
+task transferAfuGewaesserschutz(type: Db2Db, dependsOn: deleteRows){
+    sourceDb = localDevDb
+    targetDb = editDb
+    transferSets = [
+            new TransferSet('status.sql', 'afu_gewaesserschutz.gwszonen_status', false), 
+            new TransferSet('gwsareal.sql', 'afu_gewaesserschutz.gwszonen_gwsareal', false),
+            new TransferSet('gwszone.sql', 'afu_gewaesserschutz.gwszonen_gwszone', false),            
+            new TransferSet('dokument.sql', 'afu_gewaesserschutz.gwszonen_dokument', false),
+            new TransferSet('gsbereich.sql', 'afu_gewaesserschutz.gsbereiche_gsbereich', false),
+            new TransferSet('rechtsvorschriftgwsareal.sql', 'afu_gewaesserschutz.gwszonen_rechtsvorschriftgwsareal', false),
+            new TransferSet('rechtsvorschriftgwszone.sql', 'afu_gewaesserschutz.gwszonen_rechtsvorschriftgwszone', false)
+    ]
+}
+
+task printSequenceUpdate(type: SqlExecutor, dependsOn: transferAfuGewaesserschutz){
+    database = editDb
+    sqlFiles = ['print_sequence_update.sql']
+}
+
+
+
+

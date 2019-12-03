@@ -116,7 +116,7 @@ dokument AS
 
 insert_status AS
 (
-	insert into afu_gewaesserschutz.astatus(t_id, rechtsstatus, rechtskraftdatum)
+	insert into afu_gewaesserschutz.gwszonen_status(t_id, rechtsstatus, rechtskraftdatum)
 	(
 		select tid_status, rechtsstatus, rechtskraftdatum from status
 	)
@@ -125,7 +125,7 @@ insert_status AS
 
 insert_gwsareal AS
 (
-	insert into afu_gewaesserschutz.gwsareal(t_id, typ, istaltrechtlich, astatus, bemerkungen, bemerkungen_lang, geometrie)
+	insert into afu_gewaesserschutz.gwszonen_gwsareal(t_id, typ, istaltrechtlich, astatus, bemerkungen, bemerkungen_lang, geometrie)
 	(
 		select 
 			tid_areal, typ, ist_altrechtlich, tid_status, altdaten_id, 'de', ST_GeomFromWKB(singlepoly_wkb, 2056) 
@@ -139,7 +139,7 @@ insert_gwsareal AS
 
 insert_dokument AS 
 (
-	INSERT INTO afu_gewaesserschutz.dokument(t_id, art, titel, offiziellenr, kanton, publiziertAb, rechtsstatus, textimweb)(
+	INSERT INTO afu_gewaesserschutz.gwszonen_dokument(t_id, art, titel, offiziellenr, kanton, publiziertAb, rechtsstatus, textimweb)(
 		SELECT tid_dok, art, typ, nr, 'SO', rrb_date, 'inKraft', NULL FROM dokument
 	)
 	RETURNING *
@@ -147,7 +147,7 @@ insert_dokument AS
 
 insert_link AS 
 (
-	insert into afu_gewaesserschutz.rechtsvorschriftgwsareal(rechtsvorschrift, gwsareal)
+	insert into afu_gewaesserschutz.gwszonen_rechtsvorschriftgwsareal(rechtsvorschrift, gwsareal)
 	(
 		SELECT 
 			tid_dok,
@@ -160,7 +160,7 @@ insert_link AS
 	RETURNING *
 )
 
-SELECT concat_ws(' ', 'gsareal_insert.sql:', count(*), 'Zeilen in [astatus] eingefuegt.') AS msg FROM insert_status
+SELECT concat_ws(' ', 'gsareal_insert.sql:', count(*), 'Zeilen in [status] eingefuegt.') AS msg FROM insert_status
 UNION ALL
 SELECT concat_ws(' ', 'gsareal_insert.sql:', count(*), 'Zeilen in [gwsareal] eingefuegt.') AS msg FROM insert_gwsareal
 UNION ALL

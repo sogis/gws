@@ -19,9 +19,5 @@ echo "DB_USER_EDIT: $DB_USER_EDIT"
 echo "DB_PWD_EDIT: $DB_PWD_EDIT"
 echo "===================================================================="
 
-/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/copy_prod
-
-
-#export GRETL_INT_EDIT_URL="jdbc:postgresql://geodb-i.rootso.org/edit?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
-#export GRETL_PROD_SOGIS_URL="jdbc:postgresql://geodb.verw.rootso.org/sogis"
+/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/copy_from_prod
 
