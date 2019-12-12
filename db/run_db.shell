@@ -23,4 +23,4 @@ docker run $PARA  \
     mdillon/postgis:9.6
 	
 	
-#Connect to db with username postgres (default) and password postgres (password is set by POSTGRES_PASSWORD)
+# Database name: postgres. Connect to db with username postgres (default) and password postgres (password is set by POSTGRES_PASSWORD)
