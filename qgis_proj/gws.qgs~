@@ -19,45 +19,45 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer name="gwszone" checked="Qt::Unchecked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost port=5432 sslmode=disable key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_gwszone&quot; (geometrie) sql=" id="gwszone_d7c9f498_47b7_4502_b5cf_02b4e5b7428c">
+    <layer-tree-layer name="gwszone" checked="Qt::Unchecked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org port=5432 sslmode=require authcfg=6c179o8 key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_gwszone&quot; (geometrie) sql=" id="gwszone_d7c9f498_47b7_4502_b5cf_02b4e5b7428c">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer name="gwsareal" checked="Qt::Unchecked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost port=5432 sslmode=disable key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_gwsareal&quot; (geometrie) sql=" id="gwsareal_eb79fa64_fe4c_4a44_b35d_880239cffb77">
+    <layer-tree-layer name="gwsareal" checked="Qt::Unchecked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org port=5432 sslmode=require authcfg=6c179o8 key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_gwsareal&quot; (geometrie) sql=" id="gwsareal_eb79fa64_fe4c_4a44_b35d_880239cffb77">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer name="gsbereich" checked="Qt::Unchecked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost port=5432 sslmode=disable key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gsbereiche_gsbereich&quot; (geometrie) sql=" id="gsbereich_506aeb8f_3fb3_4c8d_94c5_949940be8715">
+    <layer-tree-layer name="gsbereich" checked="Qt::Unchecked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org port=5432 sslmode=require authcfg=6c179o8 key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gsbereiche_gsbereich&quot; (geometrie) sql=" id="gsbereich_506aeb8f_3fb3_4c8d_94c5_949940be8715">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-group name="Haupttabellen" checked="Qt::Checked" expanded="1">
       <customproperties/>
-      <layer-tree-layer name="dokument" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_dokument&quot; sql=" id="dokument_2ebabedc_08c9_4181_b4ee_f14dfec0740a">
+      <layer-tree-layer name="dokument" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_dokument&quot; sql=" id="dokument_2ebabedc_08c9_4181_b4ee_f14dfec0740a">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="status" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_status&quot; sql=" id="status_a7857b75_8604_4e52_b966_ddf2c80b7934">
+      <layer-tree-layer name="status" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_status&quot; sql=" id="status_a7857b75_8604_4e52_b966_ddf2c80b7934">
         <customproperties/>
       </layer-tree-layer>
     </layer-tree-group>
     <layer-tree-group name="tech. Hintergrundtabellen" checked="Qt::Unchecked" expanded="1">
       <customproperties/>
-      <layer-tree-layer name="rechtsvorschriftgwszone" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_rechtsvorschriftgwszone&quot; sql=" id="rechtsvorschriftgwszone_44871f0c_b876_4ab4_a41a_8fc4edccbab1">
+      <layer-tree-layer name="rechtsvorschriftgwszone" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_rechtsvorschriftgwszone&quot; sql=" id="rechtsvorschriftgwszone_44871f0c_b876_4ab4_a41a_8fc4edccbab1">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="rechtsvorschriftgwsareal" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_rechtsvorschriftgwsareal&quot; sql=" id="rechtsvorschriftgwsareal_6a29fb61_4773_4820_be38_66983105bb85">
+      <layer-tree-layer name="rechtsvorschriftgwsareal" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='t_id' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_rechtsvorschriftgwsareal&quot; sql=" id="rechtsvorschriftgwsareal_6a29fb61_4773_4820_be38_66983105bb85">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="schutzarealtyp" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_schutzarealtyp&quot; sql=" id="schutzarealtyp_71759cab_dd75_42a1_bbbf_4454fbd8ed61">
+      <layer-tree-layer name="schutzarealtyp" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_schutzarealtyp&quot; sql=" id="schutzarealtyp_71759cab_dd75_42a1_bbbf_4454fbd8ed61">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="dokumentart" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_dokumentart&quot; sql=" id="dokumentart_37bc01c5_20de_48a5_90df_e64ea07fa22b">
+      <layer-tree-layer name="dokumentart" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_dokumentart&quot; sql=" id="dokumentart_37bc01c5_20de_48a5_90df_e64ea07fa22b">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="schutzzonetyp" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_schutzzonetyp&quot; sql=" id="schutzzonetyp_ff885b35_0902_4f60_af1d_782efa0158ad">
+      <layer-tree-layer name="schutzzonetyp" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gwszonen_schutzzonetyp&quot; sql=" id="schutzzonetyp_ff885b35_0902_4f60_af1d_782efa0158ad">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="gsbereichtyp" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gsbereiche_gsbereichtyp&quot; sql=" id="gsbereichtyp_589fa075_f1ad_4af9_ae83_0cf399e447fe">
+      <layer-tree-layer name="gsbereichtyp" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;gsbereiche_gsbereichtyp&quot; sql=" id="gsbereichtyp_589fa075_f1ad_4af9_ae83_0cf399e447fe">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer name="rechtsstatusart" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='postgres' host=localhost user='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;rechtsstatusart&quot; sql=" id="rechtsstatusart_1613f4ff_5394_4aca_8790_9c9a76464d57">
+      <layer-tree-layer name="rechtsstatusart" checked="Qt::Checked" providerKey="postgres" expanded="1" source="dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='itfcode' checkPrimaryKeyUnicity='1' table=&quot;afu_gewaesserschutz&quot;.&quot;rechtsstatusart&quot; sql=" id="rechtsstatusart_1613f4ff_5394_4aca_8790_9c9a76464d57">
         <customproperties/>
       </layer-tree-layer>
     </layer-tree-group>
@@ -115,9 +115,9 @@
   <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>meters</units>
     <extent>
-      <xmin>4633332.47425991483032703</xmin>
+      <xmin>4633324.89676671382039785</xmin>
       <ymin>2244844.35478079598397017</ymin>
-      <xmax>4641008.47487339563667774</xmax>
+      <xmax>4641000.89738019462674856</xmax>
       <ymax>2249461.86431768722832203</ymax>
     </extent>
     <rotation>0</rotation>
@@ -207,7 +207,7 @@
   <projectlayers>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="0" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>dokument_2ebabedc_08c9_4181_b4ee_f14dfec0740a</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_dokument" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_dokument" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -597,7 +597,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="1" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>dokumentart_37bc01c5_20de_48a5_90df_e64ea07fa22b</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_dokumentart" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_dokumentart" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -776,7 +776,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>1261330.17699999990873039</ymax>
       </extent>
       <id>gsbereich_506aeb8f_3fb3_4c8d_94c5_949940be8715</id>
-      <datasource>dbname='postgres' host=localhost port=5432 sslmode=disable key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gsbereiche_gsbereich" (geometrie) sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org port=5432 sslmode=require authcfg=6c179o8 key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gsbereiche_gsbereich" (geometrie) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1083,7 +1083,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="1" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>gsbereichtyp_589fa075_f1ad_4af9_ae83_0cf399e447fe</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gsbereiche_gsbereichtyp" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gsbereiche_gsbereichtyp" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1262,7 +1262,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>1245833.79449235997162759</ymax>
       </extent>
       <id>gwsareal_eb79fa64_fe4c_4a44_b35d_880239cffb77</id>
-      <datasource>dbname='postgres' host=localhost port=5432 sslmode=disable key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_gwsareal" (geometrie) sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org port=5432 sslmode=require authcfg=6c179o8 key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_gwsareal" (geometrie) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1588,7 +1588,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>1259555.7223254800774157</ymax>
       </extent>
       <id>gwszone_d7c9f498_47b7_4502_b5cf_02b4e5b7428c</id>
-      <datasource>dbname='postgres' host=localhost port=5432 sslmode=disable key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_gwszone" (geometrie) sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org port=5432 sslmode=require authcfg=6c179o8 key='t_id' srid=2056 type=Polygon checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_gwszone" (geometrie) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1978,7 +1978,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="1" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>rechtsstatusart_1613f4ff_5394_4aca_8790_9c9a76464d57</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."rechtsstatusart" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."rechtsstatusart" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -2151,7 +2151,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="0" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>rechtsvorschriftgwsareal_6a29fb61_4773_4820_be38_66983105bb85</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_rechtsvorschriftgwsareal" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_rechtsvorschriftgwsareal" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -2303,7 +2303,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="0" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>rechtsvorschriftgwszone_44871f0c_b876_4ab4_a41a_8fc4edccbab1</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_rechtsvorschriftgwszone" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_rechtsvorschriftgwszone" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -2321,7 +2321,7 @@ def my_form_open(dialog, layer, feature):
         </spatialrefsys>
       </srs>
       <resourceMetadata>
-        <identifier>dbname='postgres' host=localhost user='postgres' key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."rechtsvorschriftgwszone" sql=</identifier>
+        <identifier>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8 key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."rechtsvorschriftgwszone" sql=</identifier>
         <parentidentifier></parentidentifier>
         <language></language>
         <type>dataset</type>
@@ -2510,7 +2510,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="1" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>schutzarealtyp_71759cab_dd75_42a1_bbbf_4454fbd8ed61</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_schutzarealtyp" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_schutzarealtyp" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -2683,7 +2683,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="1" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>schutzzonetyp_ff885b35_0902_4f60_af1d_782efa0158ad</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_schutzzonetyp" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='itfcode' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_schutzzonetyp" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -2856,7 +2856,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer autoRefreshEnabled="0" refreshOnNotifyMessage="" maxScale="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" geometry="No geometry" readOnly="0" minScale="1e+8" autoRefreshTime="0" type="vector" refreshOnNotifyEnabled="0">
       <id>status_a7857b75_8604_4e52_b966_ddf2c80b7934</id>
-      <datasource>dbname='postgres' host=localhost user='postgres' password='postgres' key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_status" sql=</datasource>
+      <datasource>dbname='edit' host=geodb.rootso.org sslmode=require authcfg=6c179o8  key='t_id' checkPrimaryKeyUnicity='1' table="afu_gewaesserschutz"."gwszonen_status" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>

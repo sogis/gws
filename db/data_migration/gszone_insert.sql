@@ -12,8 +12,8 @@ afu_gszoar as
 	SELECT 
 		aww_gszoar.ogc_fid, 
 	 	aww_gszoar."zone",
-	 	concat_ws('-', date_part('year', rrb_date), rrbnr) AS rrb_id,
-	 	aww_gszoar.rrbnr, 
+	 	concat_ws('$', date_part('year', rrb_date), rrbnr) AS rrb_id,
+		aww_gszoar.rrbnr, 
 	    aww_gszoar.rrb_date, 
 	    aww_gszoar.wkb_geometry
 	FROM aww_gszoar

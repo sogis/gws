@@ -19,5 +19,5 @@ echo "DB_USER_EDIT: $DB_USER_EDIT"
 echo "DB_PWD_EDIT: $DB_PWD_EDIT"
 echo "===================================================================="
 
-/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/copy_from_prod
+/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/from_prod
 

@@ -9,7 +9,7 @@ with
 afu_gszoar as
 (
 	 SELECT aww_gszoar.ogc_fid, aww_gszoar."zone", aww_gszoar.rrbnr, 
-	 concat_ws('-', date_part('year', rrb_date), rrbnr) AS rrb_id,
+	 concat_ws('$', date_part('year', rrb_date), rrbnr) AS rrb_id,
 	    aww_gszoar.rrb_date, aww_gszoar.wkb_geometry
 	   FROM aww_gszoar
 	  WHERE aww_gszoar.archive = 0 
@@ -144,7 +144,6 @@ insert_dokument AS
 	)
 	RETURNING *
 ),
-
 insert_link AS 
 (
 	insert into afu_gewaesserschutz.gwszonen_rechtsvorschriftgwsareal(rechtsvorschrift, gwsareal)

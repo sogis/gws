@@ -1,9 +1,5 @@
 
-export DB_URI_SOGIS=$GRETL_PROD_SOGIS_URL
-export DB_USER_SOGIS=$GRETL_DB_USER
-export DB_PWD_SOGIS=$GRETL_DB_PASS
-
-export DB_URI_EDIT=$GRETL_PROD_EDIT_URL
+export DB_URI_EDIT=$GRETL_INT_EDIT_URL
 export DB_USER_EDIT=$GRETL_DB_USER
 export DB_PWD_EDIT=$GRETL_DB_PASS
 
@@ -13,5 +9,5 @@ echo "DB_USER_EDIT: $DB_USER_EDIT"
 echo "DB_PWD_EDIT: $DB_PWD_EDIT"
 echo "===================================================================="
 
-/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/copy_to_edit
+/bin/bash ~/Dokumente/git/gws/db/data_migration/start-gretl.shell --docker-image sogis/gretl-runtime:production --job-directory ~/Dokumente/git/gws/db/data_migration/to_edit
 
